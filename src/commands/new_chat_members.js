@@ -1,5 +1,6 @@
 'use strict'
 
+// New Chat Members Command
 module.exports = async (ctx) => {
   const chat_id = ctx.update.message.chat.id
   const new_chat_members = ctx.update.message.new_chat_members
