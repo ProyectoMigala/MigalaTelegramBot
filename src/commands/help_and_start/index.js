@@ -18,7 +18,7 @@ module.exports = async (ctx) => {
           { text: 'Actividad Futura', url: actividades_futuras }
         ],
         [
-          { text: 'Actividad ya Ejecutada', url: actividades_ya_ejecutadas },
+          { text: 'Actividades ya Ejecutadas', url: actividades_ya_ejecutadas },
         ],
         [
           { text: 'Encargados de los Roles Actuales', url: encargados_de_los_roles }
