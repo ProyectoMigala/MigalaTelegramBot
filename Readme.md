@@ -4,7 +4,7 @@ Es un bot de Telegram que sera utilizado en todas las entidades Estatales.
 
 ## Pre-Requisitos Configuracion
 
-- Renombra .env.example a .env y actualiza las variables con tus datos
+- Renombra `.env.example` a `.env` y actualiza las variables con tus datos
 
 ## Pre-Requisitos Ejecucion
 
