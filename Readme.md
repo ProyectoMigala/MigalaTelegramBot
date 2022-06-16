@@ -22,7 +22,7 @@ npm install
 
 ## Comandos de Uso
 
-```
+```bash
 # Inicia el Bot
 npm run start 
 
@@ -32,5 +32,10 @@ npm run dev
 
 ## Docker
 
-- Ejecuta el script `build.sh` para construir la imagen Docker.
-- Ejecuta el script `start.sh` para crear un contenedor Docker. El contenedor ejecuta el bot.
+```bash
+# Crea la imagen a partir del Dockerfile
+docker build -t telegram-bot-migala .
+
+# Crear el contenedor a partir de la imagen
+docker run telegram-bot-migala
+```
