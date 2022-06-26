@@ -1,4 +1,5 @@
 'use strict'
+const services = require('../../services')
 
 const linktree_url = process.env.LINKTREE_URL
 const actividades_ya_ejecutadas = process.env.ACTIVIDAD_YA_EJECUTADA
@@ -11,6 +12,7 @@ const text = process.env.MENU_TEXT
 module.exports = async (ctx) => {
 
   let options = {
+    caption: text,
     reply_markup: {
       inline_keyboard: [
         [
@@ -30,9 +32,8 @@ module.exports = async (ctx) => {
     }
   }
 
-  try {
-    await ctx.editMessageText(text, options)
-  } catch {
-    await ctx.reply(text, options)
-  }
+  const gif = await services.giphy.getOneRandomGif('Hello')
+  const url = gif.data.images.preview.mp4
+
+  await ctx.replyWithAnimation({ url }, options)
 }
