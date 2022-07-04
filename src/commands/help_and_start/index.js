@@ -1,5 +1,4 @@
 'use strict'
-const services = require('../../services')
 
 const text = process.env.MENU_TEXT
 
