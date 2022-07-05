@@ -1,9 +1,15 @@
 'use strict'
+const services = require('../../../services')
 
 const linktree = process.env.LINKTREE_URL
 
 // Linktree Command
 module.exports = async (ctx) => {
+
+  let user = ctx.update.callback_query.from.first_name
+  let activity = ctx.update.callback_query.data
+
+  await services.jsoning.add(user, activity)
 
   let caption = 'Enlace a Linktree'
 

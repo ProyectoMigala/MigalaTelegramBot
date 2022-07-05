@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./index.js",
-    "dev": "nodemon -L ./index.js"
+    "dev": "nodemon -L ./index.js --ignore ./json/ --ignore ./db/"
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,13 @@
   },
   "homepage": "https://github.com/ProyectoMigala/MigalaTelegramBot#readme",
   "devDependencies": {
-    "nodemon": "^2.0.14",
-    "got": ">=11.8.5"
+    "got": ">=11.8.5",
+    "nodemon": "^2.0.14"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
     "giphy-api": "^2.0.2",
+    "jsoning": "^0.13.23",
     "telegraf": "^4.8.5"
   }
 }

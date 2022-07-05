@@ -1,9 +1,24 @@
 'use strict'
+const services = require('../../services')
 
 const text = process.env.MENU_TEXT
 
 // Default Command (Shows a Message and Buttons Menu)
 module.exports = async (ctx) => {
+
+  if (ctx.update.message !== undefined) {
+    let user = ctx.update.message.from.first_name
+    let activity = 'Inicio'
+
+    await services.jsoning.add(user, activity)
+  }
+
+  if (ctx.update.callback_query !== undefined) {
+    let user = ctx.update.callback_query.from.first_name
+    let activity = ctx.update.callback_query.data
+
+    await services.jsoning.add(user, activity)
+  }
 
   let options = {
     caption: text,

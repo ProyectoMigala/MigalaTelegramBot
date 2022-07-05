@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  giphy: require('./giphy')
+  giphy: require('./giphy'),
+  jsoning: require('./jsoning')
 }
