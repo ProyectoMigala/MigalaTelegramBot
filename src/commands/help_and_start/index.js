@@ -1,39 +1,66 @@
 'use strict'
 const services = require('../../services')
 
-const linktree_url = process.env.LINKTREE_URL
-const actividades_ya_ejecutadas = process.env.ACTIVIDAD_YA_EJECUTADA
-const actividades_actuales = process.env.ACTIVIDAD_ACTUAL
-const actividades_futuras = process.env.ACTIVIDAD_FUTURA
-const encargados_de_los_roles = process.env.ENCARGADOS_DE_LOS_ROLES
 const text = process.env.MENU_TEXT
 
 // Default Command (Shows a Message and Buttons Menu)
 module.exports = async (ctx) => {
+
+  if (ctx.update.message !== undefined) {
+    let user = ctx.update.message.from.first_name
+    let activity = 'Inicio'
+
+    await services.jsoning.add(user, activity)
+  }
+
+  if (ctx.update.callback_query !== undefined) {
+    let user = ctx.update.callback_query.from.first_name
+    let activity = ctx.update.callback_query.data
+
+    await services.jsoning.add(user, activity)
+  }
 
   let options = {
     caption: text,
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Actividad Actual', url: actividades_actuales },
-          { text: 'Actividad Futura', url: actividades_futuras }
+          {
+            text: 'Actividad Actual',
+            callback_data: 'Actividad Actual'
+          },
+          {
+            text: 'Actividad Futura',
+            callback_data: 'Actividad Futura'
+          }
         ],
         [
-          { text: 'Actividades ya Ejecutadas', url: actividades_ya_ejecutadas },
+          {
+            text: 'Actividades ya Ejecutadas',
+            callback_data: 'Actividades ya Ejecutadas'
+          },
         ],
         [
-          { text: 'Encargados de los Roles Actuales', url: encargados_de_los_roles }
+          {
+            text: 'Encargados de los Roles Actuales',
+            callback_data: 'Encargados de los Roles Actuales'
+          }
         ],
         [
-          { text: 'Linktree', url: linktree_url },
+          {
+            text: 'Linktree',
+            callback_data: 'Linktree'
+          },
         ],
       ]
     }
   }
 
-  const gif = await services.giphy.getOneRandomGif('Hello')
-  const url = gif.data.images.preview.mp4
+  try {
+    await ctx.editMessageCaption(text, options)
+  } catch {
+    let imagePath = `${process.cwd()}/resources/${process.env.IMG}`
 
-  await ctx.replyWithAnimation({ url }, options)
+    await ctx.replyWithPhoto({ source: imagePath }, options)
+  }
 }
