@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ProyectoMigala/MigalaTelegramBot#readme",
   "devDependencies": {
     "got": ">=11.8.5",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.19"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
