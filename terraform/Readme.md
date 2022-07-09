@@ -51,11 +51,12 @@ make providers platform=spot.io
 
 ## Despues de haber levantado toda la infraestructura
 
-Al haber levantado la infraestructura, puedes conectarte con `ssh` y el archivo `MigalaBots.pem` que esta dentro de la carpeta `spot.io`, la `ip` de la instancia la tienes que sacar de `aws` o `spot.io` (ip publica)
+Al tener la infraestructura, puedes conectarte con `ssh`m el archivo `MigalaBots.pem` esta dentro de la carpeta `spot.io`, la `ip` de la instancia la tienes que conseguir de `aws` o `spot.io` (ip publica)
 
 ```bash
-ssh -t ./MigalaBots.pem ubuntu@public_ip
+ssh -i MigalaBots.pem ubuntu@public_ip
 ```
 
 despues de esto puedes seguir con los pasos que esta en la carpeta `scripts`.
-para ser especifico, solo la parte de crear los `env` y ejecutar `deploy_all.sh`
+
+para ser especifico, solo la parte de crear los `env` y ejecutar `deploy_all.sh`. [aqui](https://github.com/ProyectoMigala/MigalaTelegramBot/tree/master/scripts#creas-los-archivos-de-entorno-para-cada-bot) 
