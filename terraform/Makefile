@@ -1,19 +1,16 @@
 # DEFAUL VALUES
 
-# Choose in case you have multiple profiles on your workstation
-spotinst_account ?= default_user
-
-# Token of your Spotinst Account
-spotinst_token ?= xxxx
+# Switch to different TF image version
+tf_versions ?= 1.2.4
 
 # Choose the AWS region to use
 aws_region ?= us-east-1
 
 # Choose in case you have multiple profiles on your workstation
-aws_profile ?= nstask
+aws_profile ?= default
 
 # Select platform
-platform ?= cloud
+platform ?= spot.io
 
 
 # Terraform container
@@ -29,8 +26,6 @@ TERRAFORMBASH := docker run -i --rm -t \
 		-v ~/.spotinst:/root/.spotinst \
 		-v ~/.aws:/root/.aws \
 		--entrypoint=/bin/sh \
-		--env SPOTINST_ACCOUNT="${spotinst_account}" \
-		--env SPOTINST_TOKEN="${spotinst_token}" \
         --env AWS_PROFILE="${aws_profile}" \
 		-w /terraform hashicorp/terraform:$(tf_versions)
 
@@ -52,14 +47,19 @@ init:
 # Terraform plan
 .PHONY: plan
 plan:
-	$(TERRAFORM) plan -var 'aws_profile=$(aws_profile)' -var 'spotinst_token=$(spotinst_token)' -var 'spotinst_account=$(spotinst_account)' -var 'aws_region=${aws_region}'
+	$(TERRAFORM) plan -var 'aws_profile=$(aws_profile)' -var 'aws_region=${aws_region}'
 
 # Terraform apply
 .PHONY: apply
 apply:
-	$(TERRAFORM) apply -var 'aws_profile=$(aws_profile)' -var 'spotinst_token=$(spotinst_token)' -var 'spotinst_account=$(spotinst_account)' -var 'aws_region=${aws_region}'
+	$(TERRAFORM) apply -var 'aws_profile=$(aws_profile)' -var 'aws_region=${aws_region}'
 
 # Terraform destroy
 .PHONY: destroy
 destroy:
-	$(TERRAFORM) destroy -var 'aws_profile=$(aws_profile)' -var 'spotinst_token=$(spotinst_token)' -var 'spotinst_account=$(spotinst_account)' -var 'aws_region=${aws_region}'
+	$(TERRAFORM) destroy -var 'aws_profile=$(aws_profile)' -var 'aws_region=${aws_region}'
+
+# Terraform providers
+.PHONY: providers
+providers:
+	$(TERRAFORM) providers
