@@ -35,7 +35,10 @@ make plan aws_profile=default_user platform=spot.io
 # Con esto Aplicas el Plan
 make apply aws_profile=default_user platform=spot.io
 
-# Con esto Destruyes la infraestructura (tienes que tener el backend de terraform)
+# En este punto ya tienes la infraestructura arriba
+
+
+# Con esto Destruyes la infraestructura (tienes que tener el tfstate de terraform)
 make destroy aws_profile=default_user platform=spot.io
 
 
@@ -51,10 +54,12 @@ make providers platform=spot.io
 
 ## Despues de haber levantado toda la infraestructura
 
-Al tener la infraestructura, puedes conectarte con `ssh`m el archivo `MigalaBots.pem` esta dentro de la carpeta `spot.io`, la `ip` de la instancia la tienes que conseguir de `aws` o `spot.io` (ip publica)
+Al tener la infraestructura, puedes conectarte con `ssh`, el archivo `MigalaBots.pem` esta dentro de la carpeta `spot.io`, la `ip` de la instancia la tienes que conseguir de `aws` o `spot.io` (ip publica)
 
 ```bash
-ssh -i MigalaBots.pem ubuntu@public_ip
+
+ssh -i ./spot.io/MigalaBots.pem ubuntu@public_ip
+
 ```
 
 despues de esto puedes seguir con los pasos que esta en la carpeta `scripts`.
