@@ -48,8 +48,8 @@ module.exports = async (ctx) => {
         ],
         [
           {
-            text: 'Link3',
-            callback_data: 'Link3'
+            text: 'Linktree',
+            callback_data: 'Linktree'
           },
         ],
       ]

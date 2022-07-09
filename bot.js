@@ -39,7 +39,7 @@ bot.on('callback_query', async (ctx) => {
   let callback_query = ctx.update.callback_query
 
   switch (callback_query.data) {
-    case 'Link3':
+    case 'Linktree':
       await commands.callback_query.linktree(ctx)
       break;
     case 'Encargados de los Roles Actuales':
