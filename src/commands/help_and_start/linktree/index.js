@@ -18,7 +18,7 @@ module.exports = async (ctx) => {
       inline_keyboard: [
         [
           {
-            text: 'Linktree',
+            text: 'Link3',
             url: linktree
           },
         ],
