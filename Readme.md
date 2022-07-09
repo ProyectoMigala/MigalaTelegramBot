@@ -1,3 +1,4 @@
+[![Deploy](https://github.com/ProyectoMigala/MigalaTelegramBot/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/ProyectoMigala/MigalaTelegramBot/actions/workflows/main.yml)
 # Telegram Bot Migala
 
 Es un bot de Telegram que sera utilizado en todas las entidades Estatales.
