@@ -27,6 +27,6 @@
     "dotenv": "^16.0.1",
     "giphy-api": "^2.0.2",
     "jsoning": "^0.13.23",
-    "telegraf": "^4.8.6"
+    "telegraf": "^4.9.1"
   }
 }
