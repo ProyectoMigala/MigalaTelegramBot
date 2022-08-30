@@ -24,7 +24,7 @@
     "nodemon": "^2.0.19"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "giphy-api": "^2.0.2",
     "jsoning": "^0.13.23",
     "telegraf": "^4.8.6"
