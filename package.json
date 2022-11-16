@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ProyectoMigala/MigalaTelegramBot#readme",
   "devDependencies": {
-    "got": ">=12.5.1",
+    "got": ">=12.5.3",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
